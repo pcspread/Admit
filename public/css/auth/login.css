@@ -10,14 +10,11 @@
 }
 
 .login-section {
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     padding: 50px;
     margin: 0 auto;
 }
-
-.login-form {}
-
-.login-item {}
 
 .login-input {
     width: 100%;

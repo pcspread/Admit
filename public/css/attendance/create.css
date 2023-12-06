@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+.main-content {
+    background-image: none;
+}
+
+.main-content__title {
+    color: #555;
+    background-color: #CCC;
+}
+
+.attendance-section {
+    margin: 50px 0;
+}
+
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+.card-button {
+    display: block;
+    width: 280px;
+    height: 150px;
+    margin: 15px 15px 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0 0 2px 1px #AAA;
+}
+
+.card-button:hover {
+    cursor: pointer;
+    background-color: #AAA;
+    color: #FFF;
+}
+
+@media screen and (max-width: 920px) {
+    .card-wrapper {
+        display: block;
+    }
+
+    .card-button {
+        margin: 15px auto;
+    }
+}
