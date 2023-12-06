@@ -31,6 +31,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/login">ログイン</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/attendance">勤怠管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/attendance/list/">勤怠一覧</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/attendance/over/">時間外一覧</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/holiday">休暇申請</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/holiday/list">休暇申請一覧</a>
+                </li>
             </ul>
         </nav>
         <div class="main-content">
