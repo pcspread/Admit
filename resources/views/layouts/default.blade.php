@@ -46,6 +46,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/holiday/list">休暇申請一覧</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/report">日報報告</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/report/list">日報一覧</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/mail">メール通知</a>
+                </li>
             </ul>
         </nav>
         <div class="main-content">
