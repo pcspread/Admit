@@ -18,7 +18,7 @@
         </tr>
         @for ($i = 0; $i < 15; $i++)
         <tr class="table-item">
-            <td class="table-content">1日1日</td>
+            <td class="table-content">1日1日～1月1日</td>
             <td class="table-content">9:00～12:00</td>
             <td class="table-content">中山太郎</td>
             <td class="table-content">有給休暇</td>

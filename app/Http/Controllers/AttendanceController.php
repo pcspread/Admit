@@ -19,7 +19,7 @@ class AttendanceController extends Controller
 
     /**
      * view表示
-     * 勤怠リスト
+     * 勤怠一覧ページ
      * @param void
      * @return view
      */
@@ -30,7 +30,7 @@ class AttendanceController extends Controller
 
     /**
      * view表示
-     * 時間外リスト
+     * 時間外一覧ページ
      * @param void
      * @return view
      */
