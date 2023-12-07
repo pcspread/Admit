@@ -28,7 +28,6 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Fortify::createUsersUsing(CreateNewUser::class);
         // Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         // Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         // Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
@@ -43,10 +42,15 @@ class FortifyServiceProvider extends ServiceProvider
         //     return Limit::perMinute(5)->by($request->session()->get('login.id'));
         // });
 
+        // view表示：新規登録
         Fortify::registerView(function() {
             return view('auth.register');
         });
+        
+        // 新規登録処理
+        Fortify::createUsersUsing(CreateNewUser::class);
 
+        // view表示：ログイン
         Fortify::loginView(function() {
             return view('auth.login');
         });
