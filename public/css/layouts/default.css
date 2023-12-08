@@ -45,7 +45,13 @@
     text-decoration: none;
 }
 
+.nav-link.logout {
+    border: none;
+    background-color: #A7B4C6;
+}
+
 .nav-link:hover {
+    cursor: pointer;
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
