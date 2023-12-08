@@ -25,12 +25,14 @@
     <main class="main">
         <nav class="nav">
             <ul class="nav-list">
+                @if (!Auth::check())
                 <li class="nav-item">
                     <a class="nav-link" href="/register">新規登録</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/login">ログイン</a>
                 </li>
+                @else
                 <li class="nav-item">
                     <a class="nav-link" href="/attendance">勤怠管理</a>
                 </li>
@@ -55,6 +57,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/mail">メール通知</a>
                 </li>
+                <li class="nav-item">
+                    <form class="nav-item__form" action="/logout" method="post">
+                    @csrf
+                        <button class="nav-link logout">ログアウト</button>
+                    </form>
+                </li>
+                @endif
             </ul>
         </nav>
         <div class="main-content">
