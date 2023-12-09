@@ -12,13 +12,26 @@
     <link rel="stylesheet" href="{{ asset('css/layouts/reset.css') }}">      
     <link rel="stylesheet" href="{{ asset('css/layouts/default.css') }}">
     @yield('css')
+    <script src="{{ asset('js/layouts/default.js') }}" defer></script>
     @yield('js')
 </head>
 
 <body>
-    <header class="header">
+    <header class="header" id="top">
         <div class="logo">
             <a class="logo-link" href="/">Admit</a>
+        </div>
+        <div class="right-group">
+            @if (Auth::check())
+            <div class="person">
+                <p class="person-text">{{ Auth::user()['name'] }}様</p>
+            </div>
+            @endif
+            <div class="burger">
+                <div class="burger-line first"></div>
+                <div class="burger-line second"></div>
+                <div class="burger-line third"></div>
+            </div>
         </div>
     </header>
 
@@ -75,6 +88,10 @@
     </main>
 
     <aside class="aside">
+        <div class="mask"></div>
+        <div class="upper">
+            <a class="upper-link" href="#top"><</a>
+        </div>
     </aside>
 </body>
 </html>
