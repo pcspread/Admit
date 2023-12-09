@@ -1,5 +1,8 @@
 @charset "UTF-8";
 
+html {
+    scroll-behavior: smooth;
+}
 
 .header {
     background-color: #457FD3;
@@ -7,6 +10,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px;
 }
 
 .logo-link {
@@ -14,11 +18,56 @@
     font-size: 32px;
     color: #FFF;
     text-decoration: none;
-    margin: 0 15px;
 }
 
 .logo-link:hover {
     opacity: .7;
+}
+
+.right-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.person-text {
+    font-size: 24px;
+    color: #FFF;
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 38px;
+    height: 32px;
+    margin-left: 24px;
+    z-index: 5;
+}
+
+.burger:hover {
+    cursor: pointer;
+    opacity: .7;
+}
+
+.burger-line {
+    width: 100%;
+    height: 3px;
+    background-color: #FFF;
+    transition: all .3s ease-in-out;
+}
+
+.active.burger-line.first {
+    transform: rotate(45deg) translate(11px, 10px);
+}
+
+.active.burger-line.second {
+    display: none;
+}
+
+.active.burger-line.third {
+    transform: rotate(-45deg) translate(10px, -10px);
 }
 
 .main {
@@ -72,4 +121,64 @@
     height: 10vh;
     width: 100%;
     color: #555;
+}
+
+.mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #555;
+    opacity: .9;
+}
+
+.upper {
+    position: fixed;
+    display: none;
+    bottom: 15px;
+    right: 15px;
+}
+
+.upper-link {
+    display: block;
+    width: 45px;
+    height: 45px;
+    line-height: 40px;
+    font-size: 32px;
+    text-align: center;
+    border-radius: 45px;
+    background-color: #AAA;
+    color: #FFF;
+    text-decoration: none;
+    transform: rotate(90deg);
+}
+
+@media screen and (max-width:580px) {
+    .burger {
+        display: flex;
+    }
+
+    .nav-list {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding-top: 10vh;
+        height: 100%;
+        background-color: #A7B4C6;
+        z-index: 4;
+    }
+
+    .display {
+        display: flex;
+    }
+
+    .position {
+        position: fixed;
+        top: 15px;
+        right: 15px;
+    }
 }
