@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->datetime('start_at');
             $table->datetime('end_at')->nullable();
             $table->date('date_at')->nullable();
-            $table->datetime('total_at');
+            $table->time('total_at')->nullable();
         });
     }
 

@@ -154,6 +154,7 @@ html {
     color: #FFF;
     text-decoration: none;
     transform: rotate(90deg);
+    opacity: .7;
 }
 
 @media screen and (max-width:580px) {
