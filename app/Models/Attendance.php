@@ -12,6 +12,6 @@ class Attendance extends Model
     public $timestamps = false;
     
     protected $fillable = [
-        'start_at', 'end_at', 'date_at', 'total_at',
+        'user_id', 'start_at', 'end_at', 'date_at', 'total_at',
     ];
 }

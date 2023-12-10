@@ -25,6 +25,9 @@ Route::get('/', [TopController::class, 'indexTop']);
 // view表示：勤怠管理ページ
 Route::get('/attendance', [AttendanceController::class, 'createAttendance']);
 
+// 勤務開始処理
+Route::post('/attendance', [AttendanceController::class, 'storeAttendance']);
+
 // view表示：勤怠一覧ページ
 Route::get('/attendance/list/', [AttendanceController::class, 'indexAttendance']);
 

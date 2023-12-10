@@ -12,6 +12,7 @@ class Rest extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'user_id',
         'break_at', 'restart_at', 'total_at'
     ];
 }
