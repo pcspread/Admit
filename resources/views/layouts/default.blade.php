@@ -88,6 +88,13 @@
     </main>
 
     <aside class="aside">
+        <div class="comment">
+            @if (session('success'))
+            <p class="comment-text success">{{ session('success') }}</p>
+            @elseif (session('danger'))
+            <p class="comment-text danger">{{ session('danger') }}</p>
+            @endif
+        </div>
         <div class="mask"></div>
         <div class="upper">
             <a class="upper-link" href="#top"><</a>

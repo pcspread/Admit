@@ -13,6 +13,7 @@ class Rest extends Model
 
     protected $fillable = [
         'user_id',
+        'attendance_id',
         'break_at', 'restart_at', 'total_at'
     ];
 }

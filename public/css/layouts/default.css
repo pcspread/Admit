@@ -123,6 +123,24 @@ html {
     color: #555;
 }
 
+.comment {
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    z-index: 2;
+}
+
+.comment-text {
+    padding: 15px 32px;
+    background-color: #55FF55;
+    color: #FFF;
+    border-radius: 0 0 0 15px;
+}
+
+.comment-text.danger {
+    background-color: #FF5555;
+}
+
 .mask {
     display: none;
     position: fixed;

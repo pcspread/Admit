@@ -34,3 +34,15 @@ function upper() {
     });
 }
 upper();
+
+/**
+ * コメントの削除
+ */
+function noneComment() {
+    const comment = document.querySelector('.comment');
+
+    setTimeout(function () {
+        comment.style.display = 'none';
+    }, 3500);
+}
+noneComment();
