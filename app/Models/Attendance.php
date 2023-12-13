@@ -37,8 +37,8 @@ class Attendance extends Model
         $text = '';
 
         if (!empty($attendance['end_at'])) {
-            $text = Carbon::parse($attendance['start_at'])->format('h:i') . '  ～ ';
-            $text .= Carbon::parse($attendance['end_at'])->format('h:i');
+            $text = Carbon::parse($attendance['start_at'])->format('H:i') . '  ～ ';
+            $text .= Carbon::parse($attendance['end_at'])->format('H:i');
             return $text;            
         } else {
             return '';
@@ -70,9 +70,31 @@ class Attendance extends Model
 
         if (!empty($attendance->rests)) {
             foreach ($attendance->rests as $rest) {
-                $text .= Carbon::parse($rest['break_at'])->format('h:i') . ' ～ ' . Carbon::parse($rest['restart_at'])->format('h:i') . '(' . Carbon::parse($rest['total_at'])->format('H:i') . ')' . '<br>';
+                $text .= Carbon::parse($rest['break_at'])->format('H:i') . ' ～ ' . Carbon::parse($rest['restart_at'])->format('H:i') . '(' . Carbon::parse($rest['total_at'])->format('H:i') . ')' . '<br>';
             }
             return $text;
+        } else {
+            return '';
+        }
+    }
+
+    /**
+     * 時間外リストの勤務内容を作成する
+     * @param $attendance
+     * @return string
+     */
+    public function overAttendance($attendance)
+    {
+        $text = '';
+
+        if (!empty($attendance)) {
+            if ($attendance['end_at'] > $attendance['date_at'] . ' 18:00:00') {
+                $text .= Carbon::parse($attendance['start_at'])->format('H:i');
+                $text .= ' ～ ' . Carbon::parse($attendance['end_at'])->format('H:i');
+                return $text;
+            } else {
+                return '';
+            }
         } else {
             return '';
         }

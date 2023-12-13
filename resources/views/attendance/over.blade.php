@@ -1,3 +1,7 @@
+@php
+use App\Models\Attendance;
+@endphp
+
 @extends('layouts.default')
 
 @section('css')
@@ -17,15 +21,22 @@
         <tr class="table-item">
             <th class="table-title">日付</th>
             <th class="table-title">曜日</th>
-            <th class="table-title">内容</th>
+            <th class="table-title">勤務時間</th>
+            <th class="table-title">時間外</th>
         </tr>
-        @for ($i = 0; $i < 15; $i++)
+        @foreach ($days as $day)
+        @php
+        $attendance = new Attendance; 
+        $base = Attendance::where('date_at', $day)->first();
+
+        @endphp
         <tr class="table-item">
-            <td class="table-content">1日</td>
-            <td class="table-content">月曜</td>
-            <td class="table-content">9:00～17:00(8時間)(1時間休憩)</td>
+            <td class="table-content">{{ $day->isoFormat('D日') }}</td>
+            <td class="table-content">{{ $day->isoFormat('dd') }}</td>
+            <td class="table-content">{{ $attendance->overAttendance($base) }}</td>
+            <td class="table-content"></td>
         </tr>
-        @endfor
+        @endforeach
     </table>
 </div>
 @endsection

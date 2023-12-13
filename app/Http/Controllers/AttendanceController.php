@@ -251,6 +251,10 @@ class AttendanceController extends Controller
      */
     public function indexOverAttendance()
     {
-        return view('attendance.over');
+        // 該当月の全ての日を取得
+        $baseDay = Carbon::now()->copy();
+        $days = CarbonPeriod::create($baseDay->startOfMonth()->toDateString(), $baseDay->endOfMonth()->toDateString())->toArray();
+
+        return view('attendance.over', compact('baseDay', 'days'));
     }
 }
