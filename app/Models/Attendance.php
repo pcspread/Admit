@@ -79,7 +79,7 @@ class Attendance extends Model
     }
 
     /**
-     * 時間外リストの勤務内容を作成する
+     * 時間外リストの勤務時間を作成する
      * @param $attendance
      * @return string
      */
@@ -88,10 +88,26 @@ class Attendance extends Model
         $text = '';
 
         if (!empty($attendance)) {
-            if ($attendance['end_at'] > $attendance['date_at'] . ' 18:00:00') {
-                $text .= Carbon::parse($attendance['start_at'])->format('H:i');
-                $text .= ' ～ ' . Carbon::parse($attendance['end_at'])->format('H:i');
-                return $text;
+            $text .= Carbon::parse($attendance['start_at'])->format('H:i');
+            $text .= ' ～ ' . Carbon::parse($attendance['end_at'])->format('H:i');
+            return $text;
+        } else {
+            return '';
+        }
+    }
+
+    /**
+     * 時間外リストの時間外部分を作成する
+     * @param $attendance
+     * @return string
+     */
+    public function overDiffAttendance($attendance)
+    {
+        if (!empty($attendance)) {
+            $base_diff = Carbon::parse($attendance['date_at'] . '18:00:00')->diff(Carbon::parse($attendance['end_at']));
+            $diff = $base_diff->format('%H:%I:%S');
+            if ($diff > '00:00:00') {
+                return $diff;
             } else {
                 return '';
             }
@@ -99,4 +115,5 @@ class Attendance extends Model
             return '';
         }
     }
+
 }

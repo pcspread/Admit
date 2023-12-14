@@ -21,6 +21,8 @@
 
 .last-date {
     font-size: 20px;
+    color: #888;
+    text-decoration: none;
 }
 
 .over-date__title {
@@ -30,6 +32,8 @@
 
 .next-date {
     font-size: 20px;
+    color: #888;
+    text-decoration: none;
 }
 
 .last-date:hover,
@@ -57,10 +61,19 @@
 }
 
 .table-title:nth-of-type(3) {
-    width: 80%;
+    width: 60%;
+}
+
+.table-title:nth-of-type(4) {
+    width: 20%;
 }
 
 .table-content {
     padding: 15px;
     border: 1px solid #888;
+}
+
+.table-content:nth-of-type(1),
+.table-content:nth-of-type(2) {
+    text-align: center;
 }

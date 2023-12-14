@@ -218,7 +218,7 @@ class AttendanceController extends Controller
     /**
      * view表示
      * 勤怠一覧ページ
-     * @param void
+     * @param object $request
      * @return view
      */
     public function indexAttendance(Request $request)
@@ -246,15 +246,30 @@ class AttendanceController extends Controller
     /**
      * view表示
      * 時間外一覧ページ
-    * @param void
+    * @param object $request
      * @return view
      */
-    public function indexOverAttendance()
+    public function indexOverAttendance(Request $request)
     {
-        // 該当月の全ての日を取得
-        $baseDay = Carbon::now()->copy();
-        $days = CarbonPeriod::create($baseDay->startOfMonth()->toDateString(), $baseDay->endOfMonth()->toDateString())->toArray();
+        if ($request->month) {
+            // ベースの月を決定
+            $baseDay = Carbon::parse($request->month);
+            // 前月を取得
+            $subMonth = $baseDay->copy()->subMonth();
+            // 翌月を取得
+            $addMonth = $baseDay->copy()->addMonth();
+            // 該当月の全ての日を取得
+            $days = CarbonPeriod::create($baseDay->startOfMonth()->toDateString(), $baseDay->endOfMonth()->toDateString())->toArray();
+        } else {
+            // 前月を取得
+            $subMonth = Carbon::now()->copy()->subMonth();
+            // 翌月を取得
+            $addMonth = Carbon::now()->copy()->addMonth();
+            // 該当月の全ての日を取得
+            $baseDay = Carbon::now()->copy();
+            $days = CarbonPeriod::create($baseDay->startOfMonth()->toDateString(), $baseDay->endOfMonth()->toDateString())->toArray();
+        }
 
-        return view('attendance.over', compact('baseDay', 'days'));
+        return view('attendance.over', compact('subMonth', 'addMonth', 'baseDay', 'days'));
     }
 }
