@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+.attendance-section {
+    height: 63vh;
+    overflow: auto;
+}
+
 .main-content {
     background-image: none;
 }

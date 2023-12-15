@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+.list-section {
+    height: 70vh;
+    overflow: auto;
+}
+
 .main-content {
     background-image: none;
 }
@@ -61,15 +66,19 @@
 }
 
 .table-title:nth-of-type(3) {
-    width: 40%;
+    width: 15%;
 }
 
 .table-title:nth-of-type(4) {
-    width: 20%;
+    width: 15%;
 }
 
 .table-title:nth-of-type(5) {
-    width: 20%;
+    width: 15%;
+}
+
+.table-title:nth-of-type(6) {
+    width: 35%;
 }
 
 .table-content {

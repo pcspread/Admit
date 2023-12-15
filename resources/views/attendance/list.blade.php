@@ -26,7 +26,8 @@ use App\Models\Rest;
         <tr class="table-item">
             <th class="table-title">日付</th>
             <th class="table-title">曜日</th>
-            <th class="table-title">勤務時間</th>
+            <th class="table-title">開始時間</th>
+            <th class="table-title">終了時間</th>
             <th class="table-title">勤務合計</th>
             <th class="table-title">休憩詳細</th>
         </tr>
@@ -41,7 +42,8 @@ use App\Models\Rest;
         <tr class="table-item">
             <td class="table-content">{{ $day->isoFormat('D日') }}</td>
             <td class="table-content day">{{ $day->isoFormat('dd') }}</td>
-            <td class="table-content">{{ $attendance->listDetailAttendance($base_atte) }}</td>
+            <td class="table-content">{{ $attendance->listStartAttendance($base_atte) }}</td>
+            <td class="table-content">{{ $attendance->listEndAttendance($base_atte) }}</td>
             <td class="table-content">{{ $attendance->listTotalAttendance($base_atte) }}</td>
             <td class="table-content">
                 {!! $attendance->listDetailRest($base_atte) !!}

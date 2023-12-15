@@ -35,6 +35,27 @@ class RestSeeder extends Seeder
                 'break_at' => '2023-12-10 12:00:00',
                 'restart_at' => '2023-12-10 13:00:00',
                 'total_at' => '01:00:00',
+            ],
+            [
+                'user_id' => 1,
+                'attendance_id' => 4,
+                'break_at' => '2023-12-11 12:00:00',
+                'restart_at' => '2023-12-11 13:00:00',
+                'total_at' => '01:00:00',
+            ],
+            [
+                'user_id' => 1,
+                'attendance_id' => 5,
+                'break_at' => '2023-12-12 12:00:00',
+                'restart_at' => '2023-12-12 13:00:00',
+                'total_at' => '01:00:00',
+            ],
+            [
+                'user_id' => 1,
+                'attendance_id' => 6,
+                'break_at' => '2023-12-13 12:00:00',
+                'restart_at' => '2023-12-13 13:00:00',
+                'total_at' => '01:00:00',
             ]
         ]);
     }
