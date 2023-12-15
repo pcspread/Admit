@@ -26,6 +26,33 @@ class Attendance extends Model
         return $this->hasMany(Rest::class);
     }
 
+    /**
+     * 勤怠リストの開始時間を作成する
+     * @param $attendance
+     * @return string
+     */
+    public function listStartAttendance($attendance)
+    {
+        if (!empty($attendance['start_at'])) {
+            return Carbon::parse($attendance['start_at'])->format('H:i');
+        } else {
+            return '';
+        }
+    }
+
+    /**
+     * 勤怠リストの終了時間を作成する
+     * @param $attendance
+     * @return string
+     */
+    public function listEndAttendance($attendance)
+    {
+        if (!empty($attendance['end_at'])) {
+            return Carbon::parse($attendance['end_at'])->format('H:i');
+        } else {
+            return '';
+        }
+    }
 
     /**
      * 勤怠リストの勤務時間を作成する
@@ -52,7 +79,7 @@ class Attendance extends Model
      */
     public function listTotalAttendance($attendance)
     {
-        if (!empty($attendance)) {
+        if (!empty($attendance['end_at'])) {
             return Carbon::parse($attendance['total_at'])->format('H:i');
         } else {
             return '';
@@ -70,7 +97,11 @@ class Attendance extends Model
 
         if (!empty($attendance->rests)) {
             foreach ($attendance->rests as $rest) {
-                $text .= Carbon::parse($rest['break_at'])->format('H:i') . ' ～ ' . Carbon::parse($rest['restart_at'])->format('H:i') . '(' . Carbon::parse($rest['total_at'])->format('H:i') . ')' . '<br>';
+                if (!empty($rest['restart_at'])) {
+                    $text .= Carbon::parse($rest['break_at'])->format('H:i') . ' ～ ' . Carbon::parse($rest['restart_at'])->format('H:i') . '(' . Carbon::parse($rest['total_at'])->format('H:i') . ')' . '<br>';
+                } else {
+                    $text = '';
+                }
             }
             return $text;
         } else {
@@ -87,7 +118,7 @@ class Attendance extends Model
     {
         $text = '';
 
-        if (!empty($attendance)) {
+        if (!empty($attendance['end_at'])) {
             $text .= Carbon::parse($attendance['start_at'])->format('H:i');
             $text .= ' ～ ' . Carbon::parse($attendance['end_at'])->format('H:i');
             return $text;
@@ -103,9 +134,9 @@ class Attendance extends Model
      */
     public function overDiffAttendance($attendance)
     {
-        if (!empty($attendance)) {
+        if (!empty($attendance['end_at'])) {
             $base_diff = Carbon::parse($attendance['date_at'] . '18:00:00')->diff(Carbon::parse($attendance['end_at']));
-            $diff = $base_diff->format('%H:%I:%S');
+            $diff = $base_diff->format('%H:%I');
             if ($diff > '00:00:00') {
                 return $diff;
             } else {

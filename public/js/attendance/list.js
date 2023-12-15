@@ -11,6 +11,7 @@ function colorChangeDay() {
             day.parentElement.children[2].style.backgroundColor = '#CCCCFF';
             day.parentElement.children[3].style.backgroundColor = '#CCCCFF';
             day.parentElement.children[4].style.backgroundColor = '#CCCCFF';
+            day.parentElement.children[5].style.backgroundColor = '#CCCCFF';
         }
     });
     days.forEach(day => {
@@ -20,6 +21,7 @@ function colorChangeDay() {
             day.parentElement.children[2].style.backgroundColor = '#FFCCCC';
             day.parentElement.children[3].style.backgroundColor = '#FFCCCC';
             day.parentElement.children[4].style.backgroundColor = '#FFCCCC';
+            day.parentElement.children[5].style.backgroundColor = '#FFCCCC';
         }
     });
 }
