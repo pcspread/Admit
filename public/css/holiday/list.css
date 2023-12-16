@@ -89,7 +89,17 @@
     color: #FFF;
 }
 
+.table-button.approval {
+    background-color: #555;
+    box-shadow: 0 0 2px 1px #555;
+}
+
 .table-button:hover {
     opacity: .7;
     cursor: pointer;
+}
+
+.table-button.approval:hover {
+    opacity: unset;
+    cursor: auto;
 }
