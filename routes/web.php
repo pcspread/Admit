@@ -40,8 +40,14 @@ Route::get('/attendance/over', [AttendanceController::class, 'indexOverAttendanc
 // view表示：休暇申請ページ
 Route::get('/holiday', [HolidayController::class, 'createHoliday']);
 
+// 休暇申請処理
+Route::post('/holiday', [HolidayController::class, 'storeHoliday']);
+
 // view表示：休暇申請一覧ページ
 Route::get('/holiday/list', [HolidayController::class, 'indexHoliday']);
+
+// 休暇申請承認処理
+Route::post('/holiday/list/{holiday_id}', [HolidayController::class, 'updateHoliday']);
 
 // view表示：日報報告ページ
 Route::get('/report', [ReportController::class, 'createReport']);
