@@ -26,6 +26,8 @@
 
 .last-date {
     font-size: 20px;
+    color: #888;
+    text-decoration: none;
 }
 
 .list-date__title {
@@ -35,6 +37,8 @@
 
 .next-date {
     font-size: 20px;
+    color: #888;
+    text-decoration: none;
 }
 
 .last-date:hover,

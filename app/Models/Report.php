@@ -12,4 +12,14 @@ class Report extends Model
     protected $fillable = [
         'user_id', 'date_at', 'content',
     ];
+
+    /**
+     * リレーション設定
+     * @param void
+     * @return object
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

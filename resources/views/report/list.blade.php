@@ -9,9 +9,9 @@
 @section('content')
 <div class="list-section">
     <div class="list-date">
-        <a class="last-date"><</a>
-        <h1 class="list-date__title">12月1日</h1>
-        <a class="next-date">></a>
+        <a class="last-date" href="/report/list?date={{ $subDay->toDateString() }}"><</a>
+        <h1 class="list-date__title">{{ $base->format('m月d日') }}</h1>
+        <a class="next-date" href="/report/list?date={{ $addDay->toDateString() }}">></a>
     </div>
     <table class="list-table">
         <tr class="table-item">
@@ -19,15 +19,15 @@
             <th class="table-title">氏名</th>
             <th class="table-title"></th>
         </tr>
-        @for ($i = 0; $i < 15; $i++)
+        @foreach ($reports as $report)
         <tr class="table-item">
-            <td class="table-content">1</td>
-            <td class="table-content">中山太郎</td>
+            <td class="table-content">{{ $report['id'] }}</td>
+            <td class="table-content">{{ $report->user['name'] }}</td>
             <td class="table-content">
-                <a class="table-content__link" href="/report/detail/1">詳細</a>
+                <a class="table-content__link" href="/report/detail/{{ $report['id'] }}">詳細</a>
             </td>
         </tr>
-        @endfor
+        @endforeach
     </table>
 </div>
 @endsection
