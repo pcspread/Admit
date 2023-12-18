@@ -22,6 +22,9 @@ use App\Http\Controllers\MailController;
 // view表示：トップページ
 Route::get('/', [TopController::class, 'indexTop']);
 
+/* ======================================================================
+勤怠管理
+====================================================================== */
 // view表示：勤怠管理ページ
 Route::get('/attendance', [AttendanceController::class, 'createAttendance']);
 
@@ -37,6 +40,9 @@ Route::get('/attendance/list/', [AttendanceController::class, 'indexAttendance']
 // view表示：時間外一覧ページ
 Route::get('/attendance/over', [AttendanceController::class, 'indexOverAttendance']);
 
+/* ======================================================================
+休暇申請
+====================================================================== */
 // view表示：休暇申請ページ
 Route::get('/holiday', [HolidayController::class, 'createHoliday']);
 
@@ -49,8 +55,14 @@ Route::get('/holiday/list', [HolidayController::class, 'indexHoliday']);
 // 休暇申請承認処理
 Route::post('/holiday/list/{holiday_id}', [HolidayController::class, 'updateHoliday']);
 
+/* ======================================================================
+日報報告
+====================================================================== */
 // view表示：日報報告ページ
 Route::get('/report', [ReportController::class, 'createReport']);
+
+// 日報報告処理
+Route::post('/report', [ReportController::class, 'storeReport']);
 
 // view表示：日報一覧ページ
 Route::get('/report/list', [ReportController::class, 'indexReport']);
@@ -58,5 +70,8 @@ Route::get('/report/list', [ReportController::class, 'indexReport']);
 // view表示：日報詳細ページ
 Route::get('/report/detail/1', [ReportController::class, 'showReport']);
 
+/* ======================================================================
+メール通知
+====================================================================== */
 // view表示：メール通知ページ
 Route::get('/mail', [MailController::class, 'createMail']);
