@@ -45,6 +45,7 @@ class ReportController extends Controller
     }
 
     /**
+     * view表示
      * 日報一覧
      * @param object $request
      * @return view
@@ -80,13 +81,32 @@ class ReportController extends Controller
     }
 
     /**
+     * 日報報告確認処理
+     * @param int $report_id
+     * @return back
+     */
+    public function updateReport($report_id)
+    {
+        // update処理
+        Report::find($report_id)->update([
+            'check' => 1,
+        ]);
+        
+        return back()->with('success', '日報を確認しました');
+    }
+
+    /**
+     * view表示
      * 日報詳細
-     * @param void
+     * @param int $report_id
      * @return view
      */
-    public function showReport()
+    public function showReport($report_id)
     {
-        return view('report.detail');
+        // 日報情報の取得
+        $report = Report::find($report_id);
+
+        return view('report.detail', compact('report'));
     }
 }
 

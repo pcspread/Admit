@@ -67,8 +67,11 @@ Route::post('/report', [ReportController::class, 'storeReport']);
 // view表示：日報一覧ページ
 Route::get('/report/list', [ReportController::class, 'indexReport']);
 
+// 日報報告確認処理
+Route::post('/report/list/{report_id}', [ReportController::class, 'updateReport']);
+
 // view表示：日報詳細ページ
-Route::get('/report/detail/1', [ReportController::class, 'showReport']);
+Route::get('/report/detail/{report_id}', [ReportController::class, 'showReport']);
 
 /* ======================================================================
 メール通知

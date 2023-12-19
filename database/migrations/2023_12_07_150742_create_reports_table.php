@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->date('date_at');
             $table->text('content');
+            $table->tinyInteger('check')->unsigned()->comment('0:未確認 1:確認済')->default(0);
             $table->timestamps();
         });
     }

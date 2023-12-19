@@ -1,3 +1,7 @@
+@php
+use Carbon\Carbon;
+@endphp
+
 @extends('layouts.default')
 
 @section('css')
@@ -9,13 +13,12 @@
 @section('content')
 <div class="detail-section">
     <div class="detail__top-block">
-        <h1 class="top-block__name">中山太郎</h1>
-        <a class="top-block__button" href="/report/list">戻る</a>
+        <h1 class="top-block__name">{{ $report->user['name'] }}</h1>
+        <a class="top-block__button" href="/report/list?date={{ $report['date_at'] }}">戻る</a>
     </div>
-    <p class="detail-date">12月1日</p>
+    <p class="detail-date">{{ Carbon::parse($report['date_at'])->format('m月d日') }}</p>
     <p class="detail-content">
-        午前中、会社Aへ提案。
-        午後、会社Bへ打ち合わせ。
+        {!! nl2br(htmlspecialchars($report['content'])) !!}    
     </p>
 </div>
 @endsection
