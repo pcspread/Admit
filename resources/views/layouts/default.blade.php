@@ -24,7 +24,7 @@
         <div class="right-group">
             @if (Auth::check())
             <div class="person">
-                <p class="person-text">{{ Auth::user()['name'] }}様</p>
+                <p class="person-text">{{ Auth::user()['name'] }} 様</p>
             </div>
             @endif
             <div class="burger">
@@ -46,6 +46,7 @@
                     <a class="nav-link" href="/login">ログイン</a>
                 </li>
                 @else
+                @if (Auth::user()['email'] !== 'owner@owner.com')
                 <li class="nav-item">
                     <a class="nav-link" href="/attendance">勤怠管理</a>
                 </li>
@@ -58,15 +59,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/holiday">休暇申請</a>
                 </li>
+                @endif
+                @if (Auth::user()['email'] === 'owner@owner.com')
                 <li class="nav-item">
                     <a class="nav-link" href="/holiday/list">休暇申請一覧</a>
                 </li>
+                @else
                 <li class="nav-item">
                     <a class="nav-link" href="/report">日報報告</a>
                 </li>
+                @endif
+                @if (Auth::user()['email'] === 'owner@owner.com')
                 <li class="nav-item">
                     <a class="nav-link" href="/report/list">日報一覧</a>
                 </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="/mail">メール通知</a>
                 </li>

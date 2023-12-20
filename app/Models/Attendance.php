@@ -135,16 +135,16 @@ class Attendance extends Model
     public function overDiffAttendance($attendance)
     {
         if (!empty($attendance['end_at'])) {
-            $base_diff = Carbon::parse($attendance['date_at'] . '18:00:00')->diff(Carbon::parse($attendance['end_at']));
-            $diff = $base_diff->format('%H:%I');
-            if ($diff > '00:00:00') {
-                return $diff;
-            } else {
-                return '';
+            if ($attendance['end_at'] > $attendance['date_at'] . ' 18:00:00') {
+                $base_diff = Carbon::parse($attendance['date_at'] . '18:00:00')->diff(Carbon::parse($attendance['end_at']));
+                $diff = $base_diff->format('%H:%I');
+                if ($diff > '00:00:00') {
+                    return $diff;
+                }
             }
-        } else {
-            return '';
         }
+
+        return '';
     }
 
 }
