@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.header-title {
+    background-color: #888;
+    color: #FFF;
+    padding: 15px;
+}
+
+.main {
+    padding: 0 15px 15px;
+}
+
+.main-title {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+.main-title__text {
+    font-size: 18px;
+}
+
+.main-content {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+.main-content__text {
+    font-size: 18px;
+}

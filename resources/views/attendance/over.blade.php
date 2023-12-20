@@ -31,7 +31,7 @@ use App\Models\Attendance;
         @foreach ($days as $day)
         @php
         $attendance = new Attendance; 
-        $base = Attendance::where('date_at', $day)->first();
+        $base = Attendance::where('user_id', Auth::id())->where('date_at', $day)->first();
 
         @endphp
         <tr class="table-item">

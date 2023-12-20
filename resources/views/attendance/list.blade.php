@@ -36,7 +36,7 @@ use App\Models\Rest;
         
         @php
         $attendance = new Attendance;
-        $base_atte = Attendance::where('date_at', $day)->first();
+        $base_atte = Attendance::where('user_id', Auth::id())->where('date_at', $day)->first();
         @endphp
 
         <tr class="table-item">
