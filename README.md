@@ -45,10 +45,16 @@ Mailpit(local環境)<br />
 メール通知<br />
 
 ## テーブル設計
+![Alt text](image-1.png)
+![Alt text](image-2.png)
+![Alt text](image-3.png)
+![Alt text](image-4.png)
 
 ## ER 図
+![Alt text](image-6.png)
 
 ## 画面遷移図
+![Alt text](image-5.png)
 
 ## 環境構築
 ■ 開発環境<br />
