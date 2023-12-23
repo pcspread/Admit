@@ -25,9 +25,6 @@ Laravel Framework 10.34.2<br />
 ■ 認証スターターキット<br />
 Fortify<br />
 
-■ メール認証<br />
-Mailpit(local環境)<br />
-
 ## 機能一覧
 新規登録<br />
 ログイン<br />
